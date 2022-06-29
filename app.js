@@ -13,7 +13,7 @@ class UI {
     static displayPets(){
         const pets = Store.getPets();
 
-        pets.forEach((pet)=> UI.addBooksToList(pet))
+        pets.forEach((pet)=> UI.addPetsToList(pet))
     }
     static addPetsToList(pet) {
         const list = document.querySelector('#pet-list')
