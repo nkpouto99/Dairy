@@ -4,227 +4,146 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./bootstrap.min.css">
-    <link rel="stylesheet" href="./bootstrap.bundle.min.js">
-    <title>My Pet Store</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>My-Dairy</title>
 </head>
 <style>
-    body {
-      font-family: "Lato", sans-serif;
-    }
-    
-    .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: rgb(48, 66, 73);
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
-    
-    .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-    
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-    
-    .sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-    
-    @media screen and (max-height: 450px) {
-      .sidenav {padding-top: 15px;}
-      .sidenav a {font-size: 18px;}
+    a{
+        text-decoration: none;
     }
 
-    #span {
-        font-size:30px;
-        cursor:pointer;
-        padding: 0 3.5rem;
-    }
-
-    nav {
-        height: 11vh;
-        width: 100%;
-        background: linear-gradient(aqua , rgba(171, 228, 224, 0.716));
-    }
-
-    footer {
-        height: 60vh;
-        width: 100%;
-        color: white;
-    }
-
-    h3 {
-        padding-top:30px ;
-    }
-
-    .button {
-        width: 250px;
-        padding: 1.1rem 1.5rem;
-        margin-top: 20px;
+    button {
+        width: 300px;
+        padding: 1.2rem 2rem;
+        margin-top: 50px;
         font-weight: bold;
         font-size: 1.1rem;
         border:2px solid blue;
-        color: black;
+        color: blue;
         border-radius:4px;
         outline: none;
         cursor: pointer;
-        background: blue;
-    }
-</style>
-<style>
-    .copy-link {
-        --hieght:36px;
-
-        display: flex;
-        max-width: 250px;
+        background: transparent;
     }
 
-    .copy-link-input {
-        flex-grow: 1;
-        padding: 0 8px;
-        font: 14px;
-        border: 1px solid #cccccc;
-        border-right: none;
-        outline: none;
+    h1{
+        padding-top:20px;font-weight: 900;font: 40px sans-serif; color: rgba(41, 6, 138, 0.653)
     }
 
-    .copy-link-input:hover {
-        background: #eeeeee;
+    button:hover {
+        background: var(--color-primary-dark);
     }
 
-    .copy-link-button {
-        flex-shrink: 0;
-        width: var(--hieght);
-        height: var(--hieght );
+    button:active {
+        transform: scale(0.98);
+    }
+
+    img {
+        height: 350px;
+        width: 450px;
+    }
+
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #dddddd;
-        outline: none;
-        border: 1px solid #cccccc;
-        cursor: pointer;
+        background: aquamarine;
+        transition: opacity 1000s, visibility 5s;
     }
 
-    .copy-link-button:hover {
-        background: #cccccc;
+    .loader--hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .loader::after {
+        content: "";
+        width: 75px;
+        height: 75px;
+        border: 15px solid #dddddd;
+        border-top-color: #009578 ;
+        border-radius: 50%;
+        animation: loading 0.50s ease infinite;
+    }
+
+    @keyframes loading {
+        from {transform:  rotate(0turn)}
+        to {transform:  rotate(1turn)}
+    }
+
+    @media (max-width:800px) {
+        img {
+            height: 300px;
+            width: 400px;
+        }
+        .loader::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border: 11px solid #dddddd;
+            border-top-color: #009578 ;
+            border-radius: 50%;
+            animation: loading 0.50s ease infinite;
+        }
+    }
+
+    @media (max-width:500px) {
+        img {
+            height: 225px;
+            width: 300px;
+        }
+
+        .loader::after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 5px solid #dddddd;
+            border-top-color: #009578 ;
+            border-radius: 50%;
+            animation: loading 0.50s ease infinite;
+        }
+
+        h1{
+        padding-top:15px;font-weight: 900;font: 30px sans-serif; color: rgba(41, 6, 138, 0.653)
+        }
+
+        button {
+            width: 275px;
+            padding: 1.1rem 1.5rem;
+            margin-top: 65px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border:2px solid blue;
+            color: blue;
+            border-radius:4px;
+            outline: none;
+            cursor: pointer;
+            background: transparent;
+        }
     }
 </style>
-<body style="background-color:rgba(173, 232, 228, 0.716);">
-    <nav>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-            <a href="./nightmode.html">Night mode</a>
-        </div>
-        <span id="span" onclick="openNav()">&#9776;</span>
-    </nav>
+<script>
+    window.addEventListener("load" , () => {
+        const loader = document.querySelector(".loader");
 
-    <div class="container mt-4">
-        <h1 class="display-4 text-center">My <span class="text-info">Pet</span>Store</h1>
+        loader.classList.add("loader--hidden");
 
-        <form id="pet-form">
-            <div class="form-group">
-                <label for="name" style="color: rgb(15, 15, 92);">Pet Name</label>
-                <input type="text" id="name" class="form-control" style="background-color: rgb(246, 254, 255);">
-            </div>
-            <div class="form-group">
-                <label for="breed" style="color:rgb(15, 15, 92);">Breed</label>
-                <input type="text" id="breed" class="form-control" style="background-color: rgb(246, 254, 255);">
-            </div>
-            <div class="form-group">
-                <label for="age" style="color:rgb(15, 15, 92);">Age</label>
-                <input type="text" id="age" class="form-control" style="background-color:  rgb(246, 254, 255);">
-            </div>
-            <input type="submit" value="Add your Pet" class="btn btn-primary form-control mt-3">
-        </form>
-        <table class="table table-dark table-striped mt-4">
-            <thead>
-                <tr>
-                    <th style="color: rgb(255, 255, 255);">Pet Name</th>
-                    <th style="color: rgb(255, 255, 255);">Breed</th>
-                    <th style="color: rgb(255, 255, 255);">Age</th>
-                    <th></th>
-                </tr>
-            </thead>
-           <tbody id="pet-list">
-            
-           </tbody>
-        </table>
-    </div>
+        loader.addEventListener("transitionend", () => {
+            document.body.removeChild(loader);
+        })
+    })
+</script>
+<body style="background:aquamarine; text-align: center;">
+    <div class="loader"></div>
+    <h1>Welcome to your dairy</h1>
+    <img src="data:image/png;base64,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"><br>
+    <a href="./loginandsignup.html"><button>Get Started Now</button></a>
 
-    <footer style="background-color: rgb(3, 3, 3);">
-        <div class="container">
-            <center>
-                <h1 class="display-4 text-center">My <span class="text-info">Pet</span>Store</h1>
-                <h3 style="padding-top: 10px; font-style: italic;">Best and most secured dairy site ever</h3>
-                <h5 style="font-style: italic;">We promise to b e always there for you and as time goes, we will add more security</h5>
-                <a href="./directsinguppage.html"><button class="button">Sign Up Now</button></a>
-
-                <h4 style="padding-top: 10px;">Share your link to others to join you in using this secured dairy site</h4>
-                <h5>Your refferal link</h5>
-                <div class="copy-link">
-                    <input type="text" class="copy-link-input" value="https://nkpouto99.github.io/my-pet-store/index.html" readonly>
-                    <button type="button" class="copy-link-button">
-                        <span class="material-icons">content_copy</span>
-                    </button>
-                </div>
-            </center>
-        </div>
-    </footer>
-
-
-    <!-- <ion-icon name="book-outline" class="text-primary"></ion-icon>-->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1484493288944647" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="app.js"></script>
-    <script>
-        function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        }
-    </script>
-    <script>
-        document.querySelectorAll(".copy-link").forEach(copyLinkContainer => {
-            const inputField = copyLinkContainer.querySelector(".copy-link-input");
-            const copyButton = copyLinkContainer.querySelector(".copy-link-button");
-
-            inputField.addEventListener("focus", () => inputField.select())
-
-            copyButton.addEventListener("click", () => {
-                const text = inputField.value;
-
-                inputField.select();
-                navigator.clipboard.writeText(text)
-
-                inputField.value = "Copied!";
-                setTimeout(() => inputField.value = text, 2000)
-            });
-        });
-    </script>
 </body>
-</html>
+</html> 

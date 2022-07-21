@@ -62,7 +62,7 @@
     nav {
         height: 11vh;
         width: 100%;
-        background:rgb(221, 231, 233);
+        background: linear-gradient(aqua , rgba(171, 228, 224, 0.716));
     }
 
     footer {
@@ -127,7 +127,7 @@
         background: #cccccc;
     }
 </style>
-<body style="background-color:black">
+<body style="background-color:rgba(173, 232, 228, 0.716);">
     <nav>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -135,24 +135,25 @@
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>
-            <a href="./indexmain.html">Day mode</a>
+            <a href="./nightmode.html">Night mode</a>
         </div>
         <span id="span" onclick="openNav()">&#9776;</span>
     </nav>
+
     <div class="container mt-4">
-        <h1 class="display-4 text-center" style="color:white;">My <span class="text-info">Pet</span>Store</h1>
+        <h1 class="display-4 text-center">My <span class="text-info">Pet</span>Store</h1>
 
         <form id="pet-form">
             <div class="form-group">
-                <label for="name" style="color: rgb(255, 255, 255);">Pet Name</label>
+                <label for="name" style="color: rgb(15, 15, 92);">Pet Name</label>
                 <input type="text" id="name" class="form-control" style="background-color: rgb(246, 254, 255);">
             </div>
             <div class="form-group">
-                <label for="breed" style="color:rgb(255, 255, 255);">Breed</label>
+                <label for="breed" style="color:rgb(15, 15, 92);">Breed</label>
                 <input type="text" id="breed" class="form-control" style="background-color: rgb(246, 254, 255);">
             </div>
             <div class="form-group">
-                <label for="age" style="color:rgb(255, 255, 255);">Age</label>
+                <label for="age" style="color:rgb(15, 15, 92);">Age</label>
                 <input type="text" id="age" class="form-control" style="background-color:  rgb(246, 254, 255);">
             </div>
             <input type="submit" value="Add your Pet" class="btn btn-primary form-control mt-3">
@@ -172,7 +173,7 @@
         </table>
     </div>
 
-    <footer style="background-color: rgb(66, 66, 66);">
+    <footer style="background-color: rgb(3, 3, 3);">
         <div class="container">
             <center>
                 <h1 class="display-4 text-center">My <span class="text-info">Pet</span>Store</h1>
@@ -191,8 +192,9 @@
             </center>
         </div>
     </footer>
+
+
     <!-- <ion-icon name="book-outline" class="text-primary"></ion-icon>-->
-    <link rel="stylesheet" href="https://bootswatch.com/5/yeti/bootstrap.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1484493288944647" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -206,7 +208,6 @@
         document.getElementById("mySidenav").style.width = "0";
         }
     </script>
-
     <script>
         document.querySelectorAll(".copy-link").forEach(copyLinkContainer => {
             const inputField = copyLinkContainer.querySelector(".copy-link-input");
