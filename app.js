@@ -42,7 +42,7 @@ class UI {
         const container = document.querySelector('.container')
         const form = document.querySelector('#pet-form')
         container.insertBefore(div, form)
-        setTimeout(()=> document.querySelector('.alert').remove(),5000)
+        setTimeout(()=> document.querySelector('.alert').remove(),3000)
     }
     static clearDefault(){
         document.querySelector('#name').value = '';

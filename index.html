@@ -7,8 +7,138 @@
     <link rel="stylesheet" href="./bootstrap.min.css">
     <link rel="stylesheet" href="./bootstrap.bundle.min.js">
     <title>My Pet Store</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+<style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgb(48, 66, 73);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+
+    #span {
+        font-size:30px;
+        cursor:pointer;
+        padding: 0 3.5rem;
+    }
+
+    nav {
+        height: 11vh;
+        width: 100%;
+        background: linear-gradient(aqua , rgba(171, 228, 224, 0.716));
+    }
+
+    footer {
+        height: 60vh;
+        width: 100%;
+        color: white;
+    }
+
+    h3 {
+        padding-top:30px ;
+    }
+
+    .button {
+        width: 250px;
+        padding: 1.1rem 1.5rem;
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border:2px solid blue;
+        color: black;
+        border-radius:4px;
+        outline: none;
+        cursor: pointer;
+        background: blue;
+    }
+</style>
+<style>
+    .copy-link {
+        --hieght:36px;
+
+        display: flex;
+        max-width: 250px;
+    }
+
+    .copy-link-input {
+        flex-grow: 1;
+        padding: 0 8px;
+        font: 14px;
+        border: 1px solid #cccccc;
+        border-right: none;
+        outline: none;
+    }
+
+    .copy-link-input:hover {
+        background: #eeeeee;
+    }
+
+    .copy-link-button {
+        flex-shrink: 0;
+        width: var(--hieght);
+        height: var(--hieght );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #dddddd;
+        outline: none;
+        border: 1px solid #cccccc;
+        cursor: pointer;
+    }
+
+    .copy-link-button:hover {
+        background: #cccccc;
+    }
+</style>
 <body style="background-color:rgba(173, 232, 228, 0.716);">
+    <nav>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+            <a href="./nightmode.html">Night mode</a>
+        </div>
+        <span id="span" onclick="openNav()">&#9776;</span>
+    </nav>
 
     <div class="container mt-4">
         <h1 class="display-4 text-center">My <span class="text-info">Pet</span>Store</h1>
@@ -41,11 +171,27 @@
             
            </tbody>
         </table>
-        <div style="text-align: center; padding-bottom: 50px;">
-            <a href="./nightmode.html"><button class="btn btn-primary form-control mt-3">Night Mode</button></a>
-        </div>
     </div>
 
+    <footer style="background-color: rgb(3, 3, 3);">
+        <div class="container">
+            <center>
+                <h1 class="display-4 text-center">My <span class="text-info">Pet</span>Store</h1>
+                <h3 style="padding-top: 10px; font-style: italic;">Best and most secured dairy site ever</h3>
+                <h5 style="font-style: italic;">We promise to b e always there for you and as time goes, we will add more security</h5>
+                <a href="./directsinguppage.html"><button class="button">Sign Up Now</button></a>
+
+                <h4 style="padding-top: 10px;">Share your link to others to join you in using this secured dairy site</h4>
+                <h5>Your refferal link</h5>
+                <div class="copy-link">
+                    <input type="text" class="copy-link-input" value="https://nkpouto99.github.io/my-pet-store/index.html" readonly>
+                    <button type="button" class="copy-link-button">
+                        <span class="material-icons">content_copy</span>
+                    </button>
+                </div>
+            </center>
+        </div>
+    </footer>
 
 
     <!-- <ion-icon name="book-outline" class="text-primary"></ion-icon>-->
@@ -54,34 +200,31 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="app.js"></script>
     <script>
-        document.querySelector('#pet-form').addEventListener('submit', (e)=>{
+        function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        }
 
-            e.preventDefault()
-            // get form values
-            const name = document.querySelector('#name').value
-            const breed = document.querySelector('#breed').value
-            const age = document.querySelector('#age').value
+        function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script>
+        document.querySelectorAll(".copy-link").forEach(copyLinkContainer => {
+            const inputField = copyLinkContainer.querySelector(".copy-link-input");
+            const copyButton = copyLinkContainer.querySelector(".copy-link-button");
 
-            //validate 
-            if(name === '' || breed === '' || age === ''){
-                UI.showAlert('please complete your pets details', 'danger')
-            }else{
-                const pet = new Pet(name, breed, age)
+            inputField.addEventListener("focus", () => inputField.select())
 
-                // add book to list
-                UI.addPetsToList(pet)
+            copyButton.addEventListener("click", () => {
+                const text = inputField.value;
 
-                // add book to the store
-                Store.addPet(pet)
+                inputField.select();
+                navigator.clipboard.writeText(text)
 
-                UI.showAlert('Pet details added successfully', 'info')
-
-                // remove value after submit
-                UI.clearDefault()
-            }
-            // instantiate book
-
-        })
+                inputField.value = "Copied!";
+                setTimeout(() => inputField.value = text, 2000)
+            });
+        });
     </script>
 </body>
 </html>
